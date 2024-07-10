@@ -1,0 +1,27 @@
+<%- include("partials/header.ejs") %>
+
+<% if (posts.length > 0) { %>
+    <% posts.forEach(post => { %>
+        <div class="post">
+            <h2><%= post.title %></h2>
+            <p><%= post.body %></p>
+            <div class="media-container">
+                <% if (post.imageUrl) { %>
+                    <img src="<%= post.imageUrl %>" alt="Blog Image" class="post-media">
+                <% } %>
+                <% if (post.videoUrl) { %>
+                    <video controls class="post-media-vid">
+                        <source src="<%= post.videoUrl %>" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                <% } %>
+            </div>
+            <p class="poster">Posted by: <%= post.poster %></p>
+            <p class="post-time">Posted on: <%= new Date(post.createdAt).toLocaleDateString() %> at <%= new Date(post.createdAt).toLocaleTimeString() %></p>
+        </div>
+    <% }) %>
+<% } else { %>
+    <h1>No posts available</h1>
+<% } %>
+
+<%- include("partials/footer.ejs") %>

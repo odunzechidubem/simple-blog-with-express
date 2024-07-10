@@ -1,0 +1,17 @@
+<%- include("partials/header.ejs") %>
+
+<main>
+    <h2>Add Blog Post</h2>
+    <form action="/submit" method="POST" enctype="multipart/form-data">
+        <input class="feedback-input" type="text" name="title" placeholder="Enter your blog title" required>
+        <textarea class="feedback-input" name="body" placeholder="Enter your blog content" required rows="5"></textarea>
+        <input class="feedback-input" type="text" name="poster" placeholder="Enter name of poster">
+        <input class="feedback-input" type="file" name="image" accept="image/*">
+        <input class="feedback-input" type="file" name="video" accept="video/*">
+        <input type="submit" value="Post">
+    </form>
+</main>
+
+    <br><br><br>
+
+  <%- include("partials/footer.ejs") %>
